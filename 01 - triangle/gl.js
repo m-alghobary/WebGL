@@ -7,7 +7,7 @@ class GL {
 	 * @param {String} canvasId the HTML id attr of the canvas element
 	 */
 	constructor(canvasId, is3D = false) {
-		const canvas = document.getElementById('canvas');
+		const canvas = document.getElementById(canvasId);
 
 		// object state
 		this._gl = canvas.getContext('webgl');
