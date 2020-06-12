@@ -4,7 +4,7 @@ const webgl = gl._gl;
 
 // create shader program
 const program = gl.createProgramFromSource('vertex-shader-src', 'fragment-shader-src');
-webgl.useProgram(program);
+gl.useProgram();
 
 // get the program attribute locations
 const posLocation = gl.getLocation(gl.ATTR, 'a_position');
