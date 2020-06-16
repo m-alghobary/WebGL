@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>WebGL - 01 - Triangle</title>
+		<style>
+			canvas {
+				display: block;
+				margin: 0 auto;
+				border: 1ps solid #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="300"></canvas>
+
+		<!-- Shader source code -->
+		<script type="notjs" id="vertex-shader-src">
+			attribute vec4 a_position;
+			attribute vec3 a_color;
+
+			uniform mat4 modelView;
+			varying vec3 fragColor;
+
+			void main() {
+				// pass fragment color
+				fragColor = a_color;
+
+				gl_Position = modelView * a_position;
+			}
+		</script>
+		<script type="notjs" id="fragment-shader-src">
+			precision mediump float;
+
+			varying vec3 fragColor;
+			void main() {
+				gl_FragColor = vec4(fragColor, 1);
+			}
+		</script>
+
+		<script src="./gl.js"></script>
+		<script src="./data.js"></script>
+		<script src="./mat.js"></script>
+		<script src="./main.js"></script>
+	</body>
+</html>
